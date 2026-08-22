@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Craver Fast Food Co. Menu — Explore our full selection of smash burgers, artisanal pizzas, Nashville tenders, loaded fries, and thick shakes.">
+  <title>Food Menu | Craver Fast Food Co.</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Modular CSS Hierarchy -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ═══════════════ TOP ANNOUNCEMENT BAR ═══════════════ -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-promo">
+        <i class="fa-solid fa-fire" style="color:var(--color-secondary);"></i>
+        <span>Craver Special: <strong>Free Fast Delivery</strong> on all orders over $25! Use code: <strong>CRAVEFREE</strong></span>
+      </div>
+      <div class="top-bar-info">
+        <span><i class="fa-solid fa-clock"></i> Open: 10:00 AM – 11:30 PM</span>
+        <a href="tel:+18002728377" class="top-bar-link"><i class="fa-solid fa-phone"></i> +1 (800) CRAVERS</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MAIN NAVIGATION HEADER ═══════════════ -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Craver Fast Food Home">
+        <div class="brand-logo-icon">
+          <i class="fa-solid fa-burger"></i>
+        </div>
+        <span>Craver<span class="brand-logo-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="menu.html" class="nav-link active">Menu</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <a href="menu.html" class="btn-icon" aria-label="Search Menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <!-- Cart Button with Live Count Badge -->
+        <a href="cart.html" class="btn-icon cart-btn" aria-label="View Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" style="display:none;">0</span>
+        </a>
+
+        <a href="menu.html" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-utensils"></i> Order Now
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-toggle" aria-label="Open mobile navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════ MOBILE SLIDE-OUT DRAWER ═══════════════ -->
+  <div class="mobile-drawer-overlay">
+    <div class="mobile-drawer">
+      <div>
+        <div class="mobile-drawer-header">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon"><i class="fa-solid fa-burger"></i></div>
+            <span>Craver<span class="brand-logo-dot">.</span></span>
+          </a>
+          <button class="mobile-drawer-close" aria-label="Close navigation menu">&times;</button>
+        </div>
+
+        <nav class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+          <a href="menu.html" class="mobile-nav-link active">
+            <i class="fa-solid fa-utensils"></i> Food Menu
+          </a>
+          <a href="about.html" class="mobile-nav-link">
+            <i class="fa-solid fa-circle-info"></i> About Us
+          </a>
+          <a href="contact.html" class="mobile-nav-link">
+            <i class="fa-solid fa-headset"></i> Contact & Hours
+          </a>
+          <a href="cart.html" class="mobile-nav-link">
+            <i class="fa-solid fa-bag-shopping"></i> My Cart
+          </a>
+        </nav>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <a href="menu.html" class="btn btn-primary" style="width:100%;">
+          <i class="fa-solid fa-fire"></i> Start Order
+        </a>
+        <p style="font-size:var(--text-xs); color:var(--color-text-dim); text-align:center;">
+          Hotline: +1 (800) CRAVERS
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MAIN MENU CONTENT ═══════════════ -->
+  <main>
+    <!-- Header Banner -->
+    <div class="menu-page-header">
+      <div class="container">
+        <span class="section-badge"><i class="fa-solid fa-utensils"></i> Handcrafted Food Catalog</span>
+        <h1 class="section-title">Explore The Full Craver Menu</h1>
+        <p class="section-desc" style="margin:0 auto;">
+          Choose from sizzling smash burgers, artisan pizzas, golden tenders, loaded fries, wraps, shakes, and desserts.
+        </p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:var(--space-8);">
+      <div class="container">
+        
+        <!-- ─── 1. CATEGORY PILL SELECTOR ─── -->
+        <div class="category-pills-wrap" role="tablist" aria-label="Food Categories">
+          <button class="category-pill active" data-category="all" role="tab">
+            <span class="category-pill-icon">🔥</span> All Items
+          </button>
+          <button class="category-pill" data-category="burgers" role="tab">
+            <span class="category-pill-icon">🍔</span> Burgers
+          </button>
+          <button class="category-pill" data-category="pizza" role="tab">
+            <span class="category-pill-icon">🍕</span> Pizza
+          </button>
+          <button class="category-pill" data-category="chicken" role="tab">
+            <span class="category-pill-icon">🍗</span> Chicken
+          </button>
+          <button class="category-pill" data-category="fries" role="tab">
+            <span class="category-pill-icon">🍟</span> Loaded Fries
+          </button>
+          <button class="category-pill" data-category="wraps" role="tab">
+            <span class="category-pill-icon">🌮</span> Wraps
+          </button>
+          <button class="category-pill" data-category="drinks" role="tab">
+            <span class="category-pill-icon">🥤</span> Shakes & Drinks
+          </button>
+          <button class="category-pill" data-category="desserts" role="tab">
+            <span class="category-pill-icon">🍰</span> Desserts
+          </button>
+        </div>
+
+        <!-- ─── 2. SEARCH, SORT & DIETARY TOOLBAR ─── -->
+        <div class="menu-toolbar">
+          <!-- Real-Time Search Box -->
+          <div class="search-box-wrap">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="menuSearchInput" class="search-input" placeholder="Search menu (e.g. smash burger, pepperoni, wings, shake)..." autocomplete="off">
+            <i class="fa-solid fa-xmark search-clear-btn" id="searchClearBtn" title="Clear search"></i>
+          </div>
+
+          <!-- Controls: Dietary Filter Chips + Sorting -->
+          <div class="toolbar-controls">
+            <!-- Dietary Filter Chips -->
+            <div class="dietary-filters">
+              <button class="dietary-chip active" data-dietary="all">All</button>
+              <button class="dietary-chip" data-dietary="popular"><i class="fa-solid fa-fire" style="color:var(--color-primary);"></i> Popular</button>
+              <button class="dietary-chip" data-dietary="veg"><i class="fa-solid fa-leaf" style="color:var(--color-accent-green);"></i> Veg</button>
+              <button class="dietary-chip" data-dietary="spicy"><i class="fa-solid fa-pepper-hot" style="color:var(--color-accent-spicy);"></i> Spicy</button>
+            </div>
+
+            <!-- Sort By Dropdown -->
+            <div class="sort-select-wrap">
+              <label for="menuSortSelect">Sort:</label>
+              <select id="menuSortSelect" class="sort-select">
+                <option value="popular">Most Popular</option>
+                <option value="rating-desc">Top Rated (★)</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── 3. RESULTS STATUS BAR ─── -->
+        <div class="results-info-bar">
+          <div id="resultsCount" class="results-count">Loading delicious items...</div>
+        </div>
+
+        <!-- ─── 4. DYNAMIC FOOD CARD GRID ─── -->
+        <div id="menuGrid" class="menu-grid">
+          <!-- Dynamic JavaScript Injected Content -->
+        </div>
+
+        <!-- ─── 5. EMPTY SEARCH / FILTER STATE ─── -->
+        <div id="menuEmptyState" class="menu-empty-state">
+          <div class="empty-state-icon">🔍</div>
+          <h3>No Delicious Items Found</h3>
+          <p>We couldn't find anything matching your search. Try checking your spelling or clearing filters.</p>
+          <button class="btn btn-primary" onclick="MenuModule.resetFilters()">
+            <i class="fa-solid fa-rotate-left"></i> Reset All Filters
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════ SITE FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Summary -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#FFFFFF;">
+            <div class="brand-logo-icon"><i class="fa-solid fa-burger"></i></div>
+            <span>Craver<span class="brand-logo-dot">.</span></span>
+          </a>
+          <p>
+            Serving sizzling smash burgers, crispy golden tenders, handcrafted artisanal pizzas, and thick milkshakes made from 100% fresh, locally sourced ingredients.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Home</a></li>
+            <li><a href="menu.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Full Menu</a></li>
+            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Our Story</a></li>
+            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Contact & Locations</a></li>
+            <li><a href="cart.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Shopping Bag</a></li>
+          </ul>
+        </div>
+
+        <!-- Operating Hours -->
+        <div>
+          <h4 class="footer-heading">Kitchen Hours</h4>
+          <ul class="footer-links">
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Mon – Thu:</strong> 10am – 11pm</li>
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Fri – Sat:</strong> 10am – 1am</li>
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Sunday:</strong> 11am – 10pm</li>
+            <li class="footer-link" style="color:var(--color-secondary); margin-top:var(--space-2);">
+              <i class="fa-solid fa-bolt"></i> 30-Min Fast Delivery
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Get 15% Off Your Next Meal</h4>
+          <p>Join the Craver VIP Club for secret deals, free combos, and birthday treats.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); ToastNotification.show('Subscribed to Craver VIP Deals!', 'fa-solid fa-circle-check');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear">2026</span> Craver Fast Food Co. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Nutrition & Allergens</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer"></div>
+
+  <!-- Modular JavaScript Hierarchy -->
+  <script src="data/products.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

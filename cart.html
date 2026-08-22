@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your selected Craver meals, customize quantities, apply coupons, and proceed to fast checkout.">
+  <title>Your Shopping Bag | Craver Fast Food Co.</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Modular CSS Hierarchy -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ═══════════════ TOP ANNOUNCEMENT BAR ═══════════════ -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-promo">
+        <i class="fa-solid fa-fire" style="color:var(--color-secondary);"></i>
+        <span>Craver Special: <strong>Free Fast Delivery</strong> on all orders over $25! Use code: <strong>CRAVEFREE</strong></span>
+      </div>
+      <div class="top-bar-info">
+        <span><i class="fa-solid fa-clock"></i> Open: 10:00 AM – 11:30 PM</span>
+        <a href="tel:+18002728377" class="top-bar-link"><i class="fa-solid fa-phone"></i> +1 (800) CRAVERS</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MAIN NAVIGATION HEADER ═══════════════ -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Craver Fast Food Home">
+        <div class="brand-logo-icon">
+          <i class="fa-solid fa-burger"></i>
+        </div>
+        <span>Craver<span class="brand-logo-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <a href="menu.html" class="btn-icon" aria-label="Search Menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <!-- Cart Button with Live Count Badge -->
+        <a href="cart.html" class="btn-icon cart-btn" aria-label="View Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" style="display:none;">0</span>
+        </a>
+
+        <a href="menu.html" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-utensils"></i> Order Now
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-toggle" aria-label="Open mobile navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════ MOBILE SLIDE-OUT DRAWER ═══════════════ -->
+  <div class="mobile-drawer-overlay">
+    <div class="mobile-drawer">
+      <div>
+        <div class="mobile-drawer-header">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon"><i class="fa-solid fa-burger"></i></div>
+            <span>Craver<span class="brand-logo-dot">.</span></span>
+          </a>
+          <button class="mobile-drawer-close" aria-label="Close navigation menu">&times;</button>
+        </div>
+
+        <nav class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+          <a href="menu.html" class="mobile-nav-link">
+            <i class="fa-solid fa-utensils"></i> Food Menu
+          </a>
+          <a href="about.html" class="mobile-nav-link">
+            <i class="fa-solid fa-circle-info"></i> About Us
+          </a>
+          <a href="contact.html" class="mobile-nav-link">
+            <i class="fa-solid fa-headset"></i> Contact & Hours
+          </a>
+          <a href="cart.html" class="mobile-nav-link active">
+            <i class="fa-solid fa-bag-shopping"></i> My Cart
+          </a>
+        </nav>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <a href="menu.html" class="btn btn-primary" style="width:100%;">
+          <i class="fa-solid fa-fire"></i> Start Order
+        </a>
+        <p style="font-size:var(--text-xs); color:var(--color-text-dim); text-align:center;">
+          Hotline: +1 (800) CRAVERS
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MAIN CART CONTENT ═══════════════ -->
+  <main>
+    <div class="cart-page-header">
+      <div class="container">
+        <span class="section-badge"><i class="fa-solid fa-bag-shopping"></i> Your Selected Items</span>
+        <h1 class="section-title">Review Your Craver Bag</h1>
+        <p class="section-desc" style="margin:0 auto;">
+          Check your items, adjust quantities, apply discount codes, and proceed to checkout.
+        </p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:var(--space-8);">
+      <div class="container">
+        
+        <!-- ─── 1. ACTIVE CART GRID ─── -->
+        <div id="cartLayoutGrid" class="cart-layout-grid">
+          <!-- Left: Cart Items Panel -->
+          <div class="cart-items-panel" id="cartItemsPanel">
+            <div class="cart-panel-header">
+              <h3 class="cart-panel-title">Your Meals <span id="cartItemCountHeader" style="font-size:var(--text-sm); color:var(--color-text-muted); font-weight:var(--weight-normal);">(0 items)</span></h3>
+              <button class="cart-clear-btn" id="clearCartBtn" title="Clear all items in bag">
+                <i class="fa-solid fa-trash-can"></i> Clear Bag
+              </button>
+            </div>
+
+            <!-- Dynamic Items Container -->
+            <div id="cartItemsList" class="cart-items-list">
+              <!-- Dynamically populated by js/cart.js -->
+            </div>
+
+            <!-- Footer Actions -->
+            <div class="cart-actions-row">
+              <a href="menu.html" class="btn btn-outline btn-sm">
+                <i class="fa-solid fa-plus"></i> Add More Items
+              </a>
+              <span style="font-size:var(--text-xs); color:var(--color-text-dim);">
+                <i class="fa-solid fa-shield-halved" style="color:var(--color-accent-green);"></i> 100% Satisfaction Guaranteed
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: Order Summary Card -->
+          <div class="order-summary-card">
+            <h3 class="summary-title">Order Summary</h3>
+
+            <!-- Promo Coupon Form -->
+            <div class="summary-coupon-box">
+              <form class="coupon-form" id="couponForm">
+                <input type="text" id="couponInput" class="coupon-input" placeholder="Promo code (e.g. CRAVE40)" autocomplete="off">
+                <button type="submit" class="btn btn-dark btn-sm">Apply</button>
+              </form>
+              <div class="active-coupon-tag" id="activeCouponTag">
+                <span id="activeCouponText">Applied: CRAVE40 (40% OFF)</span>
+                <span class="remove-coupon-btn" id="removeCouponBtn" title="Remove coupon">&times;</span>
+              </div>
+            </div>
+
+            <!-- Cost Breakdown -->
+            <div class="summary-rows">
+              <div class="summary-row">
+                <span>Items Subtotal:</span>
+                <strong id="cartSubtotal" style="color:var(--color-dark);">$0.00</strong>
+              </div>
+              <div class="summary-row discount-row" id="cartDiscountRow">
+                <span>Coupon Discount:</span>
+                <strong id="cartDiscountVal" style="color:var(--color-accent-green);">-$0.00</strong>
+              </div>
+              <div class="summary-row">
+                <span>Estimated Tax (8%):</span>
+                <strong id="cartTax" style="color:var(--color-dark);">$0.00</strong>
+              </div>
+              <div class="summary-row">
+                <span>Fast Thermal Delivery:</span>
+                <strong id="cartDelivery" style="color:var(--color-dark);">$3.99</strong>
+              </div>
+            </div>
+
+            <!-- Grand Total -->
+            <div class="summary-total-row">
+              <span class="summary-total-label">Grand Total:</span>
+              <span class="summary-total-val" id="cartTotal">$0.00</span>
+            </div>
+
+            <!-- Checkout CTA Button -->
+            <a href="checkout.html" class="btn btn-primary btn-lg summary-checkout-btn">
+              <i class="fa-solid fa-lock"></i> Proceed to Checkout
+            </a>
+
+            <div class="summary-delivery-note">
+              <i class="fa-solid fa-bolt" style="color:var(--color-primary);"></i> Estimated Arrival: 25–30 mins
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── 2. EMPTY CART CARD (Displayed when cart is 0) ─── -->
+        <div id="emptyCartCard" class="empty-cart-card">
+          <div class="empty-cart-icon">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <h2>Your Craver Bag is Empty</h2>
+          <p>
+            Looks like you haven't added any of our sizzling smash burgers, artisanal pizzas, or crispy tenders yet.
+          </p>
+          <a href="menu.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-utensils"></i> Explore Our Sizzling Menu
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════ SITE FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Summary -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#FFFFFF;">
+            <div class="brand-logo-icon"><i class="fa-solid fa-burger"></i></div>
+            <span>Craver<span class="brand-logo-dot">.</span></span>
+          </a>
+          <p>
+            Serving sizzling smash burgers, crispy golden tenders, handcrafted artisanal pizzas, and thick milkshakes made from 100% fresh, locally sourced ingredients.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Home</a></li>
+            <li><a href="menu.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Full Menu</a></li>
+            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Our Story</a></li>
+            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Contact & Locations</a></li>
+            <li><a href="cart.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Shopping Bag</a></li>
+          </ul>
+        </div>
+
+        <!-- Operating Hours -->
+        <div>
+          <h4 class="footer-heading">Kitchen Hours</h4>
+          <ul class="footer-links">
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Mon – Thu:</strong> 10am – 11pm</li>
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Fri – Sat:</strong> 10am – 1am</li>
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Sunday:</strong> 11am – 10pm</li>
+            <li class="footer-link" style="color:var(--color-secondary); margin-top:var(--space-2);">
+              <i class="fa-solid fa-bolt"></i> 30-Min Fast Delivery
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Get 15% Off Your Next Meal</h4>
+          <p>Join the Craver VIP Club for secret deals, free combos, and birthday treats.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); ToastNotification.show('Subscribed to Craver VIP Deals!', 'fa-solid fa-circle-check');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear">2026</span> Craver Fast Food Co. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Nutrition & Allergens</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer"></div>
+
+  <!-- Modular JavaScript Hierarchy -->
+  <script src="js/storage.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Craver Fast Food Co. — Sizzling Smash Burgers, Crispy Chicken, Artisanal Pizzas & 30-Min Fast Delivery.">
+  <title>Craver Fast Food Co. | Sizzling Burgers, Pizzas & Shakes</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Modular CSS Hierarchy -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ═══════════════ TOP ANNOUNCEMENT BAR ═══════════════ -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-promo">
+        <i class="fa-solid fa-fire" style="color:var(--color-secondary);"></i>
+        <span>Craver Special: <strong>Free Fast Delivery</strong> on all orders over $25! Use code: <strong>CRAVEFREE</strong></span>
+      </div>
+      <div class="top-bar-info">
+        <span><i class="fa-solid fa-clock"></i> Open: 10:00 AM – 11:30 PM</span>
+        <a href="tel:+18002728377" class="top-bar-link"><i class="fa-solid fa-phone"></i> +1 (800) CRAVERS</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MAIN NAVIGATION HEADER ═══════════════ -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Craver Fast Food Home">
+        <div class="brand-logo-icon">
+          <i class="fa-solid fa-burger"></i>
+        </div>
+        <span>Craver<span class="brand-logo-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <a href="menu.html" class="btn-icon" aria-label="Search Menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <!-- Cart Button with Live Count Badge -->
+        <a href="cart.html" class="btn-icon cart-btn" aria-label="View Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" style="display:none;">0</span>
+        </a>
+
+        <a href="menu.html" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-utensils"></i> Order Now
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-toggle" aria-label="Open mobile navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════ MOBILE SLIDE-OUT DRAWER ═══════════════ -->
+  <div class="mobile-drawer-overlay">
+    <div class="mobile-drawer">
+      <div>
+        <div class="mobile-drawer-header">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon"><i class="fa-solid fa-burger"></i></div>
+            <span>Craver<span class="brand-logo-dot">.</span></span>
+          </a>
+          <button class="mobile-drawer-close" aria-label="Close navigation menu">&times;</button>
+        </div>
+
+        <nav class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link active">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+          <a href="menu.html" class="mobile-nav-link">
+            <i class="fa-solid fa-utensils"></i> Food Menu
+          </a>
+          <a href="about.html" class="mobile-nav-link">
+            <i class="fa-solid fa-circle-info"></i> About Us
+          </a>
+          <a href="contact.html" class="mobile-nav-link">
+            <i class="fa-solid fa-headset"></i> Contact & Hours
+          </a>
+          <a href="cart.html" class="mobile-nav-link">
+            <i class="fa-solid fa-bag-shopping"></i> My Cart
+          </a>
+        </nav>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <a href="menu.html" class="btn btn-primary" style="width:100%;">
+          <i class="fa-solid fa-fire"></i> Start Order
+        </a>
+        <p style="font-size:var(--text-xs); color:var(--color-text-dim); text-align:center;">
+          Hotline: +1 (800) CRAVERS
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+  <main>
+    <!-- ─── 1. HERO SECTION ─── -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <!-- Hero Text & CTA -->
+        <div class="hero-content">
+          <div class="hero-badge-wrap">
+            <span class="badge-pulse-dot"></span>
+            <span>Hot & Sizzling Fast Food</span>
+          </div>
+
+          <h1 class="hero-title">
+            Craving <span class="highlight">Unmatched</span> Flavor & Quality?
+          </h1>
+
+          <p class="hero-desc">
+            Handcrafted double smash burgers, golden crispy tenders, and stone-baked pizzas delivered piping hot to your doorstep in 30 minutes or less.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="menu.html" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-utensils"></i> Order Online
+            </a>
+            <a href="menu.html" class="btn btn-outline btn-lg">
+              <i class="fa-solid fa-book-open"></i> Explore Menu
+            </a>
+          </div>
+
+          <!-- Hero Performance Metrics -->
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <h3>30<span style="color:var(--color-primary);">m</span></h3>
+              <p>Average Delivery Time</p>
+            </div>
+            <div class="hero-stat-item">
+              <h3>4.9<span style="color:var(--color-secondary);">★</span></h3>
+              <p>Over 12,000+ Reviews</p>
+            </div>
+            <div class="hero-stat-item">
+              <h3>100<span style="color:var(--color-accent-green);">%</span></h3>
+              <p>Fresh Angus & Poultry</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="hero-visual">
+          <div class="hero-main-img-wrap">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Craver Signature Smash Burger with Melted Cheddar" loading="eager">
+          </div>
+
+          <!-- Floating Badge 1: Lightning Delivery -->
+          <div class="floating-card-delivery">
+            <div class="floating-delivery-icon">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+              <strong style="display:block; font-size:var(--text-sm); color:var(--color-dark);">Express Delivery</strong>
+              <span style="font-size:var(--text-xs); color:var(--color-text-muted);">Hot to your door</span>
+            </div>
+          </div>
+
+          <!-- Floating Badge 2: Customer Rating -->
+          <div class="floating-card-rating">
+            <i class="fa-solid fa-star" style="color:var(--color-secondary); font-size:1.25rem;"></i>
+            <div>
+              <strong style="display:block; font-size:var(--text-sm);">4.9 / 5.0 Rating</strong>
+              <span style="font-size:var(--text-xs); color:var(--color-text-dim);">Chef's Best Selection</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 2. FEATURED CATEGORIES SECTION ─── -->
+    <section class="section" style="background:#FFFFFF;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="fa-solid fa-layer-group"></i> Craver Menu Categories</span>
+          <h2 class="section-title">What Are You Craving Today?</h2>
+          <p class="section-desc">
+            Explore our chef-curated selection of signature burgers, artisanal pizzas, crispy chicken, and loaded sides.
+          </p>
+        </div>
+
+        <div class="category-grid">
+          <!-- Category 1: Burgers -->
+          <a href="menu.html" class="category-card">
+            <div class="category-icon-wrap">🍔</div>
+            <h3 class="category-name">Smash Burgers</h3>
+            <span class="category-count">12 Items</span>
+          </a>
+
+          <!-- Category 2: Pizza -->
+          <a href="menu.html" class="category-card">
+            <div class="category-icon-wrap">🍕</div>
+            <h3 class="category-name">Artisan Pizza</h3>
+            <span class="category-count">8 Items</span>
+          </a>
+
+          <!-- Category 3: Crispy Chicken -->
+          <a href="menu.html" class="category-card">
+            <div class="category-icon-wrap">🍗</div>
+            <h3 class="category-name">Crispy Chicken</h3>
+            <span class="category-count">10 Items</span>
+          </a>
+
+          <!-- Category 4: Loaded Fries -->
+          <a href="menu.html" class="category-card">
+            <div class="category-icon-wrap">🍟</div>
+            <h3 class="category-name">Loaded Sides</h3>
+            <span class="category-count">6 Items</span>
+          </a>
+
+          <!-- Category 5: Cold Drinks & Shakes -->
+          <a href="menu.html" class="category-card">
+            <div class="category-icon-wrap">🥤</div>
+            <h3 class="category-name">Thick Shakes</h3>
+            <span class="category-count">7 Items</span>
+          </a>
+
+          <!-- Category 6: Desserts -->
+          <a href="menu.html" class="category-card">
+            <div class="category-icon-wrap">🍰</div>
+            <h3 class="category-name">Sweet Treats</h3>
+            <span class="category-count">5 Items</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 3. POPULAR FOOD ITEMS (BEST SELLERS) ─── -->
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="fa-solid fa-crown"></i> Chef's Best Sellers</span>
+          <h2 class="section-title">Most Loved Sizzling Specials</h2>
+          <p class="section-desc">
+            Our most ordered, highest-rated culinary hits crafted with premium ingredients and signature sauces.
+          </p>
+        </div>
+
+        <div class="popular-grid">
+          <!-- Food Card 1 -->
+          <div class="food-card">
+            <div class="food-card-img-wrap">
+              <div class="food-card-badges">
+                <span class="badge badge-popular"><i class="fa-solid fa-fire"></i> Best Seller</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Smoky BBQ Double Cheeseburger" class="food-card-img" loading="lazy">
+            </div>
+            <div class="food-card-body">
+              <div class="food-card-header">
+                <span class="food-card-category">Burgers</span>
+                <span class="food-card-rating"><i class="fa-solid fa-star"></i> 4.9 (142)</span>
+              </div>
+              <h3 class="food-card-title">Smoky BBQ Double Cheeseburger</h3>
+              <p class="food-card-desc">
+                Two 100% Angus patties, aged cheddar, crispy fried onion strings, and honey BBQ glaze on brioche.
+              </p>
+              <div class="food-card-footer">
+                <div class="food-card-price">
+                  <span class="food-current-price">$8.99</span>
+                  <span class="food-old-price">$10.99</span>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="FoodModalModule.open('burger-01');">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Food Card 2 -->
+          <div class="food-card">
+            <div class="food-card-img-wrap">
+              <div class="food-card-badges">
+                <span class="badge badge-spicy"><i class="fa-solid fa-pepper-hot"></i> Fiery Spicy</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80" alt="Crispy Buffalo Wings Basket" class="food-card-img" loading="lazy">
+            </div>
+            <div class="food-card-body">
+              <div class="food-card-header">
+                <span class="food-card-category">Chicken</span>
+                <span class="food-card-rating"><i class="fa-solid fa-star"></i> 4.8 (98)</span>
+              </div>
+              <h3 class="food-card-title">Crispy Nashville Hot Chicken Tenders</h3>
+              <p class="food-card-desc">
+                Hand-breaded chicken tenders tossed in fiery cayenne butter glaze with pickles and ranch dip.
+              </p>
+              <div class="food-card-footer">
+                <div class="food-card-price">
+                  <span class="food-current-price">$9.49</span>
+                  <span class="food-old-price">$11.50</span>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="FoodModalModule.open('chicken-01');">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Food Card 3 -->
+          <div class="food-card">
+            <div class="food-card-img-wrap">
+              <div class="food-card-badges">
+                <span class="badge badge-popular"><i class="fa-solid fa-star"></i> Popular</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pepperoni Deluxe Artisan Pizza" class="food-card-img" loading="lazy">
+            </div>
+            <div class="food-card-body">
+              <div class="food-card-header">
+                <span class="food-card-category">Pizza</span>
+                <span class="food-card-rating"><i class="fa-solid fa-star"></i> 4.9 (185)</span>
+              </div>
+              <h3 class="food-card-title">Pepperoni Deluxe Stone-Baked Pizza</h3>
+              <p class="food-card-desc">
+                Crispy hand-stretched sourdough crust, San Marzano tomato sauce, double mozzarella, and spicy beef pepperoni.
+              </p>
+              <div class="food-card-footer">
+                <div class="food-card-price">
+                  <span class="food-current-price">$12.99</span>
+                  <span class="food-old-price">$14.99</span>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="FoodModalModule.open('pizza-01');">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Food Card 4 -->
+          <div class="food-card">
+            <div class="food-card-img-wrap">
+              <div class="food-card-badges">
+                <span class="badge badge-veg"><i class="fa-solid fa-leaf"></i> Vegetarian</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80" alt="Truffle Parmesan Loaded Fries" class="food-card-img" loading="lazy">
+            </div>
+            <div class="food-card-body">
+              <div class="food-card-header">
+                <span class="food-card-category">Sides</span>
+                <span class="food-card-rating"><i class="fa-solid fa-star"></i> 4.7 (76)</span>
+              </div>
+              <h3 class="food-card-title">Truffle Parmesan Loaded Fries</h3>
+              <p class="food-card-desc">
+                Golden skin-on russet fries tossed with black truffle oil, aged parmesan snow, and fresh chives with garlic aioli.
+              </p>
+              <div class="food-card-footer">
+                <div class="food-card-price">
+                  <span class="food-current-price">$5.99</span>
+                  <span class="food-old-price">$7.20</span>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="FoodModalModule.open('fries-01');">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:var(--space-10);">
+          <a href="menu.html" class="btn btn-dark btn-lg">
+            <i class="fa-solid fa-utensils"></i> View Full 40+ Item Menu
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 4. PROMOTIONAL OFFER BANNER ─── -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="promo-banner">
+          <div>
+            <span class="promo-tag"><i class="fa-solid fa-bolt"></i> Weekend Mega Deal</span>
+            <h2 class="promo-title">Get 40% OFF On All Family Combo Feasts</h2>
+            <p class="promo-desc">
+              Includes 2 Double Burgers, 1 Large Pepperoni Pizza, 2 Large Fries, and 4 Drinks. Use promo code at checkout.
+            </p>
+
+            <div class="promo-code-box">
+              <span class="promo-code-label">Coupon:</span>
+              <span class="promo-code-value">CRAVE40</span>
+              <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText('CRAVE40'); ToastNotification.show('Promo Code CRAVE40 Copied!', 'fa-solid fa-copy');">
+                <i class="fa-solid fa-copy"></i> Copy
+              </button>
+            </div>
+
+            <div>
+              <a href="menu.html" class="btn btn-primary btn-lg">
+                <i class="fa-solid fa-bag-shopping"></i> Claim Deal Now
+              </a>
+            </div>
+          </div>
+
+          <div class="promo-img-wrap">
+            <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=600&q=80" alt="Craver Mega Feast Burger Combo" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 5. WHY CHOOSE US / VALUE PERKS ─── -->
+    <section class="section" style="background:#FFFFFF;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="fa-solid fa-shield-halved"></i> The Craver Promise</span>
+          <h2 class="section-title">Why Food Lovers Choose Craver</h2>
+          <p class="section-desc">
+            We don't cut corners. From our 100% Angus beef patties to our lightning-fast dispatch, here is what sets us apart.
+          </p>
+        </div>
+
+        <div class="perks-grid">
+          <div class="perk-card">
+            <div class="perk-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+            <h3 class="perk-title">100% Fresh & Authentic</h3>
+            <p class="perk-desc">Never frozen patties, fresh farm eggs, and artisanal bakery brioche buns baked daily.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon"><i class="fa-solid fa-motorcycle"></i></div>
+            <h3 class="perk-title">30-Min Fast Delivery</h3>
+            <p class="perk-desc">Thermal insulated delivery packs ensure your food arrives piping hot and crispy.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3 class="perk-title">Secret Craver Sauce</h3>
+            <p class="perk-desc">Custom blended house sauces made from scratch with aged spices and herbs.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <h3 class="perk-title">Hygienic Kitchens</h3>
+            <p class="perk-desc">5-star certified hygiene standards and transparent open-flame cooking stations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 6. CALL TO ACTION BANNER ─── -->
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Ready To Sizzle Your Tastebuds?</h2>
+          <p>Order your favorite meals online in under 60 seconds with live tracking and fast delivery.</p>
+          <div class="cta-btn-group">
+            <a href="menu.html" class="btn btn-secondary btn-lg">
+              <i class="fa-solid fa-utensils"></i> Browse Full Menu
+            </a>
+            <a href="contact.html" class="btn btn-dark btn-lg">
+              <i class="fa-solid fa-phone"></i> Call +1 (800) CRAVERS
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════ SITE FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Summary -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#FFFFFF;">
+            <div class="brand-logo-icon"><i class="fa-solid fa-burger"></i></div>
+            <span>Craver<span class="brand-logo-dot">.</span></span>
+          </a>
+          <p>
+            Serving sizzling smash burgers, crispy golden tenders, handcrafted artisanal pizzas, and thick milkshakes made from 100% fresh, locally sourced ingredients.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Home</a></li>
+            <li><a href="menu.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Full Menu</a></li>
+            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Our Story</a></li>
+            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Contact & Locations</a></li>
+            <li><a href="cart.html" class="footer-link"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i> Shopping Bag</a></li>
+          </ul>
+        </div>
+
+        <!-- Operating Hours -->
+        <div>
+          <h4 class="footer-heading">Kitchen Hours</h4>
+          <ul class="footer-links">
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Mon – Thu:</strong> 10am – 11pm</li>
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Fri – Sat:</strong> 10am – 1am</li>
+            <li class="footer-link" style="color:#FFFFFF;"><strong>Sunday:</strong> 11am – 10pm</li>
+            <li class="footer-link" style="color:var(--color-secondary); margin-top:var(--space-2);">
+              <i class="fa-solid fa-bolt"></i> 30-Min Fast Delivery
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Get 15% Off Your Next Meal</h4>
+          <p>Join the Craver VIP Club for secret deals, free combos, and birthday treats.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); ToastNotification.show('Subscribed to Craver VIP Deals!', 'fa-solid fa-circle-check');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear">2026</span> Craver Fast Food Co. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Nutrition & Allergens</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer"></div>
+
+  <!-- Modular JavaScript Hierarchy -->
+  <script src="data/products.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
