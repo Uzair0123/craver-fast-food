@@ -1,0 +1,12 @@
+name: Restaurant CI Pipeline
+
+on: [push]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet Uzair
+	run: echo "Hello Uzair! GitHub Actions robot is running your code in the cloud!"
+       - name: Check Cloud OS info
+	run: uname -a 
