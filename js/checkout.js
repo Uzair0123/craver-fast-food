@@ -128,6 +128,31 @@ const CheckoutModule = {
     document.getElementById('receiptPaymentMethod').textContent = paymentLabel;
     document.getElementById('receiptTotalPaid').textContent = finalTotal;
 
+    // Dispatch real order to Backend Microservice (Saved into Redis!)
+    const orderPayload = {
+      orderId: orderId,
+      customerName: fullName,
+      phone: phone,
+      address: `${address}, ${city}`,
+      notes: notes,
+      paymentMethod: paymentLabel,
+      total: finalTotal,
+      items: (typeof StorageManager !== 'undefined') ? StorageManager.getCart() : []
+    };
+
+    fetch('http://localhost:5000/api/order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderPayload)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('✅ Order saved to Redis volume:', data);
+    })
+    .catch(err => {
+      console.warn('⚠️ Backend API not reachable:', err);
+    });
+
     // Open Receipt Modal
     this.elements.receiptOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';

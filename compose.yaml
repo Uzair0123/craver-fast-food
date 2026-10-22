@@ -1,0 +1,35 @@
+services:
+  restaurant-web:
+    build: .
+    ports: 
+      - "8085:80"
+    networks:
+      - restaurant-net
+    restart: unless-stopped
+
+  order-api:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_HOST=order-db
+      - REDIS_PORT=6379
+    networks:
+      - restaurant-net
+    depends_on:
+      - order-db
+    restart: unless-stopped
+
+  order-db:
+    image: redis:alpine
+    networks:
+      - restaurant-net
+    volumes: 
+      - order-data:/data
+    restart: unless-stopped
+
+networks: 
+  restaurant-net:
+
+volumes:
+  order-data:
