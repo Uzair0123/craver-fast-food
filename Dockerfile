@@ -16,4 +16,3 @@ EXPOSE 80
 # 6. Start the web server as PID 1
 CMD ["nginx","-g", "daemon off;"]
 
-RUN this_fake_command_does_not_exist_and_will_crash
