@@ -1,13 +1,22 @@
-name: Restaurant CI Pipeline
+name: Restaurant Docker Test & Build
 
 on: [push]
 
 jobs:
-  say-hello:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Greet Uzair
-        run: echo "Hello Uzair! GitHub Actions robot is running your code in the cloud!"
+      - name: 1. Download Restaurant Code
+        uses: actions/checkout@v4
 
-      - name: Check Cloud OS info
-        run: uname -a
+      - name: 2. Build the Docker Image in the Cloud
+        run: docker build -t restaurant-app:latest .
+      - name: 3. Start the container 
+        run: docker run -d -p 8080:80 --name test-web restaurant-app:latest
+
+      - name: 4. Varify website is Alive with curl 
+        run: |
+          sleep 2 
+          curl -I http://localhost:8080 
+   
+
