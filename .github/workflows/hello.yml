@@ -9,6 +9,8 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      APP_PORT: 8080
     steps:
       - name: 1. Download Restaurant Code
         uses: actions/checkout@v4
@@ -16,11 +18,11 @@ jobs:
       - name: 2. Build the Docker Image in the Cloud
         run: docker build -t restaurant-app:latest .
       - name: 3. Start the container 
-        run: docker run -d -p 8080:80 --name test-web restaurant-app:latest
+        run: docker run -d -p $APP_PORT:80 --name test-web restaurant-app:latest
 
       - name: 4. Varify website is Alive with curl 
         run: |
           sleep 2 
-          curl -I http://localhost:8080 
+          curl -I http://localhost:$APP_PORT
    
 
