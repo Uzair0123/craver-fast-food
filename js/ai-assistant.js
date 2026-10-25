@@ -195,8 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
     responseBox.textContent = "🧠 Craver AI is cooking up a recommendation (running matrix math)...";
 
     try {
-      // Call containerized Python backend
-      const res = await fetch("http://localhost:5000/api/ai/recommend", {
+      // Dynamically resolve backend host (works on localhost, LAN IP, or domain)
+      const backendHost = window.location.hostname || "localhost";
+      const res = await fetch(`http://${backendHost}:5000/api/ai/recommend`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: prompt })

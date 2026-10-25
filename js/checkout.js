@@ -140,7 +140,8 @@ const CheckoutModule = {
       items: (typeof StorageManager !== 'undefined') ? StorageManager.getCart() : []
     };
 
-    fetch('http://localhost:5000/api/order', {
+    const backendHost = window.location.hostname || 'localhost';
+    fetch(`http://${backendHost}:5000/api/order`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(orderPayload)
