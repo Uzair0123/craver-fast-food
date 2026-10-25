@@ -1,6 +1,7 @@
 services:
   restaurant-web:
     build: .
+    container_name: craver-web
     ports: 
       - "8085:80"
     networks:
@@ -9,27 +10,53 @@ services:
 
   order-api:
     build: ./backend
+    container_name: craver-api
     ports:
       - "5000:5000"
     environment:
       - REDIS_HOST=order-db
       - REDIS_PORT=6379
+      - AI_HOST=ai-engine
+      - AI_PORT=11434
+      - AI_MODEL=qwen2.5:0.5b
     networks:
       - restaurant-net
     depends_on:
-      - order-db
+      order-db:
+        condition: service_started
+      ai-engine:
+        condition: service_healthy
     restart: unless-stopped
 
   order-db:
     image: redis:alpine
+    container_name: craver-db
     networks:
       - restaurant-net
     volumes: 
       - order-data:/data
     restart: unless-stopped
 
+  ai-engine:
+    image: ollama/ollama:latest
+    container_name: craver-ai
+    networks:
+      - restaurant-net
+    volumes:
+      - ai-models:/root/.ollama
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
 networks: 
   restaurant-net:
 
 volumes:
   order-data:
+  ai-models:
+    external: true
+    name: ai-stack_ai-models
