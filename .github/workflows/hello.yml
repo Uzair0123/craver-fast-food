@@ -25,9 +25,9 @@ jobs:
           sleep 2 
           curl -I http://localhost:$APP_PORT
    
-       - name: 5. Upload Website Files as Artifact 
-         uses: actions/upload-artifact@v4
-         with:
+      - name: 5. Upload Website Files as Artifact 
+        uses: actions/upload-artifact@v4
+        with:
            name: craver-production-files
            path: | 
              *.html
