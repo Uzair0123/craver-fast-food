@@ -34,3 +34,22 @@ jobs:
              css/
              js/
 
+
+
+# Job 2: Deploy to staging (It will run on new VM in cloud)
+
+  deploy-to-staging:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Download Artifacts from Job 1
+        uses: actions/download-artifact@v4
+        with:
+          name: craver-production-files
+      - name: 2. Inspect Downloaded Files in Fresh VM 
+        run: | 
+          echo "=== Files successfully received from job 1 ==="
+          ls -la
+      - name: 3. Simulated Deployment
+        run: echo " Website Successfully deployed to staging server!"
+
