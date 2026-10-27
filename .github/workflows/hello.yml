@@ -52,4 +52,9 @@ jobs:
           ls -la
       - name: 3. Simulated Deployment
         run: echo " Website Successfully deployed to staging server!"
+      - name: 4. Test secret masking
+        env:
+          SECRET_VAL: ${{ secrets.MY_TEST_SECRET }}
+        run: |
+          echo "Attempting to print secret: $SECRET_VAL"
 
