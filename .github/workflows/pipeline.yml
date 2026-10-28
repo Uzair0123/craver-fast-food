@@ -1,0 +1,16 @@
+name: Craver Fastfood Enterprise Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test-and-security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Clone Restaurant code into cloud VM
+        uses: actions/checkout@v4
+
+
