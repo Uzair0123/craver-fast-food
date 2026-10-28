@@ -33,3 +33,15 @@ jobs:
           severity: 'CRITICAL,HIGH'
 
 
+
+  env:
+    APP_PORT: 8080
+      - name: "5. Start Container in Backgroud"
+        run: docker run -d -p $APP_PORT:80 --name test-restaurant craver-restaurant:lastest
+
+      - name: "6. Gate 3: Live Http smoke test"
+        run: | 
+          sleep 2
+           curl -I http://localhost:$APP_PORT
+
+
