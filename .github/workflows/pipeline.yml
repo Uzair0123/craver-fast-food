@@ -54,3 +54,17 @@ jobs:
             js/
             assets/
 
+  production-deployment:
+    needs: test-and-security
+    runs-on: ubuntu-latest
+    steps:
+      - name: "1. Download Production Artifacts from job 1"
+        uses: actions/download-artifact@v4
+        with:
+          name: craver-production-files
+
+      - name: "2. Inspect Downloaded Files in Brand new VM"
+        run: | 
+          echo "=== Verifying Files Handed over from cloud Locker ==="
+          ls -la
+
