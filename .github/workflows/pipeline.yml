@@ -13,7 +13,7 @@ jobs:
       - name: 1. Clone Restaurant code into cloud VM
         uses: actions/checkout@v4
 
-      - name: 2. Gate 1: Code Sanity & File Integrigy Check
+      - name: "2. Gate 1: Code Sanity & File Integrigy Check"
         run: | 
           echo "=== Running Gate 1: File Integrity checks ==="
           test -f index.html || (echo "ERROR: index.html missing!"&& exit 1 )
@@ -25,7 +25,7 @@ jobs:
 
 
 
-      - name: 4. Gate 2 : Trivy Continer Vulnerability Scan (CVEs)
+      - name: "4. Gate 2 : Trivy Continer Vulnerability Scan (CVEs)"
         uses: aquasecurity/trivy-action@0.28.0
         with:
           image-ref: 'craver-restaurant:latest'
