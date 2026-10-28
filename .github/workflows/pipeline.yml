@@ -9,6 +9,8 @@ on:
 jobs:
   test-and-security:
     runs-on: ubuntu-latest
+    env:
+      APP_PORT: 8080
     steps:
       - name: 1. Clone Restaurant code into cloud VM
         uses: actions/checkout@v4
@@ -34,8 +36,6 @@ jobs:
 
 
 
-  env:
-    APP_PORT: 8080
       - name: "5. Start Container in Backgroud"
         run: docker run -d -p $APP_PORT:80 --name test-restaurant craver-restaurant:lastest
 
