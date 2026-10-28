@@ -68,3 +68,10 @@ jobs:
           echo "=== Verifying Files Handed over from cloud Locker ==="
           ls -la
 
+      - name: "3. Enterprise Secret Injection & Masking Guard"
+        env:
+          DEPLOY_KEY: ${{ secrets.MY_TEST_SECRET }}
+        run: | 
+          echo "=== Testing Deploying Authentication ==="
+          echo "Authorizing staging deployment with key:$DEPLOY_KEY"
+
