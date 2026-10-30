@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: 1. Clone Latest Code
-       uses: action/checkout@v4
+       uses: actions/checkout@v4
 
      - name: 2. Build Production  Image
        run: docker build -t craver-restaurant:latest .
@@ -23,7 +23,7 @@ jobs:
         sleep 2
 
      - name: 4. Rollout Update to Replica 1
-      run: |
+       run: |
         docker stop replica-1 && docker rm replica-1
         docker run -d -p 8081:80 --name replica-1 craver-restaurant:latest
         sleep 2
