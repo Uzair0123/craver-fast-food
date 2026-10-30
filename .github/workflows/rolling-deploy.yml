@@ -1,0 +1,40 @@
+name: Production Rolling Deployment
+
+on: 
+  workflow_dispatch:                   # Industry standard: The Deploy Button" (mannual Trigger!)
+
+  push:
+    branches: [ "main" ]
+
+jobs:
+  rolling-update:
+    runs-on: ubuntu-latest
+    steps:
+     - name: 1. Clone Latest Code
+       uses: action/checkout@v4
+
+     - name: 2. Build Production  Image
+       run: docker build -t craver-restaurant:latest .
+     
+     - name: 3. Start Initial Replicas (v1)
+       run: | 
+        docker run -d -p 8081:80 --name replica-1 craver-restaurant:latest
+        docker run -d -p 8082:80 --name replica-2 craver-restaurant:latest
+        sleep 2
+
+     - name: 4. Rollout Update to Replica 1
+      run: |
+        docker stop replica-1 && docker rm replica-1
+        docker run -d -p 8081:80 --name replica-1 craver-restaurant:latest
+        sleep 2
+        curl -I http://localhost:8081
+
+     - name: 5. Rolling Update to Replica 2
+       run: | 
+        docker stop replica-2 && docker rm replica-2
+        docker run -d -p 8082:80 --name replica-2 craver-restaurant:latest
+        sleep 2
+        curl -I http://localhost:8082
+
+     - name: 6. Clean Up Temporary Containers
+       run: docker stop replica-1 replica-2 && docker rm replica-1 replica-2
