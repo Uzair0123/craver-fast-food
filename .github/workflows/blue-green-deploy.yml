@@ -1,0 +1,67 @@
+name: Production Blue-Green Deployment
+
+on:
+  workflow_dispatch:                   # Industry Standard: The Big Red Manual Deploy Button
+
+jobs:
+  blue-green-rollout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Clone Source Code
+        uses: actions/checkout@v4
+
+      - name: 2. Build Restaurant Production Image
+        run: docker build -t craver-restaurant:latest .
+
+      - name: 3. Create Isolated Container Network
+        run: docker network create app-network
+
+      - name: 4. Deploy Blue Environment (Current Production)
+        run: |
+          docker run -d --name craver-blue --network app-network -p 8081:80 craver-restaurant:latest
+          sleep 2
+          echo "=== Blue environment running on internal port 8081 ==="
+          curl -I http://localhost:8081
+
+      - name: 5. Start NGINX Router (Initially Pointing to Blue)
+        run: |
+          # Start NGINX reverse proxy on public port 8000 using our dedicated config file
+          docker run -d --name router --network app-network -p 8000:80 -v $(pwd)/nginx/nginx.conf:/etc/nginx/nginx.conf:rw nginx:alpine
+          sleep 2
+          echo "=== Testing Public Port 8000 (Routed to Blue) ==="
+          curl -I http://localhost:8000
+
+      - name: 6. Deploy Green Environment (New Release Candidate)
+        run: |
+          # Green starts quietly on separate port 8082 without receiving any public traffic yet
+          docker run -d --name craver-green --network app-network -p 8082:80 craver-restaurant:latest
+          sleep 2
+
+      - name: 7. Private Quality Gate: Smoke Test Green in Isolation
+        run: |
+          echo "=== Smoke Testing Green before switching customer traffic ==="
+          curl -I http://localhost:8082 || (echo "Green failed health check! Aborting switch!" && exit 1)
+          echo "Green is 100% HEALTHY! Ready for cutover."
+
+      - name: 8. The Traffic Switch: Hot-Reload NGINX Router to Green
+        run: |
+          echo "=== Updating NGINX Upstream from Blue to Green ==="
+          sed -i 's/craver-blue:80/craver-green:80/' nginx/nginx.conf
+
+          # Hot-reload NGINX inside the container without dropping active connections
+          docker exec router nginx -s reload
+          sleep 2
+
+          echo "=== Verifying Public Port 8000 (Now Instantly Routing to Green!) ==="
+          curl -I http://localhost:8000
+
+      - name: 9. Decommission Old Blue Environment
+        run: |
+          echo "=== Green is stable. Safely stopping Blue ==="
+          docker stop craver-blue && docker rm craver-blue
+          echo "Blue container safely decommissioned!"
+
+      - name: 10. Clean Up All Test Containers
+        run: |
+          docker stop router craver-green && docker rm router craver-green
+          docker network rm app-network
