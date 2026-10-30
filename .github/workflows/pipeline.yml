@@ -74,4 +74,25 @@ jobs:
         run: | 
           echo "=== Testing Deploying Authentication ==="
           echo "Authorizing staging deployment with key:$DEPLOY_KEY"
+      - name: "4. Strategy A: Rolling Update Simulation (Zero-Downtime)"
+        run: |
+
+          # 1. Start tow real containers (v1)
+          docker run -d -p 8081:80 --name replica-1 craver-restaurant:latest
+          docker run -d -p 8082:80 --name replica-2 craver-restaurant:latest 
+          sleep 2
+
+          # 2. Update Replica 1 (Stop old, start new on same port 8081)
+          docker stop replica-1 && docker rm replica-1
+          docker run -d -p 8081:80 --name replica-1 craver-restaurant:latest
+          sleep 2
+          curl -I http://localhost:8081 # <---Real System output!
+
+          # 3. Update Replica 2 (stop 9ld, start new on same port 8082)
+          docker stop replica-2 && docker rm replica-2
+          docker run -d -p 8082:80 --name replica-2 craver-restaurant:latest
+          sleep 2
+          curl -I http://localhost:8082 
+          # 4. Clean up containers
+          docker stop replica-1 replica-2 && docker rm replica-a1 replica-2
 
