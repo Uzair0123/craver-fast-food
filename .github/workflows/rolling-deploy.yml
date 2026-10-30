@@ -3,8 +3,6 @@ name: Production Rolling Deployment
 on: 
   workflow_dispatch:                   # Industry standard: The Deploy Button" (mannual Trigger!)
 
-  push:
-    branches: [ "main" ]
 
 jobs:
   rolling-update:
