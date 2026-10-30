@@ -28,7 +28,7 @@ jobs:
 
 
       - name: "4. Gate 2 : Trivy Continer Vulnerability Scan (CVEs)"
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.28.0
         with:
           image-ref: 'craver-restaurant:latest'
           format: 'table'
