@@ -1,18 +1,23 @@
 <div align="center">
 
 # 🍔 Craver Fast Food Co.
-### *Commercial-Grade Fast-Food Restaurant & Online Ordering Web Platform*
+### *Commercial-Grade Fast-Food Web Platform & Enterprise CI/CD Engine*
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript_ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![LocalStorage](https://img.shields.io/badge/Web_Storage_API-10B981?style=for-the-badge&logo=google-chrome&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
-[![Responsive](https://img.shields.io/badge/Mobile--First-100%25_Responsive-FF3838?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Enterprise CI/CD](https://github.com/Uzair0123/craver-fast-food/actions/workflows/pipeline.yml/badge.svg)](https://github.com/Uzair0123/craver-fast-food/actions/workflows/pipeline.yml)
+[![Blue/Green Deployment](https://github.com/Uzair0123/craver-fast-food/actions/workflows/blue-green-deploy.yml/badge.svg)](https://github.com/Uzair0123/craver-fast-food/actions/workflows/blue-green-deploy.yml)
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-uzairsultan%2Fcraver--fastfood-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/uzairsultan/craver-fastfood)
+[![Security Scan](https://img.shields.io/badge/Security-Trivy%20CVE%20Audited-10B981?style=for-the-badge&logo=aquasecurity&logoColor=white)](https://github.com/aquasecurity/trivy)
 
 <br/>
 
-**[🌐 View Live Production Deployment](https://uzair0123.github.io/craver-fast-food/)** • **[📖 Explore Menu](https://uzair0123.github.io/craver-fast-food/menu.html)** • **[🛒 View Cart Engine](https://uzair0123.github.io/craver-fast-food/cart.html)**
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript_ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+
+<br/>
+
+**[🌐 View Live Website](https://uzair0123.github.io/craver-fast-food/)** • **[🐳 Docker Hub Image](https://hub.docker.com/r/uzairsultan/craver-fastfood)** • **[⚙️ View CI/CD Pipelines](https://github.com/Uzair0123/craver-fast-food/actions)**
 
 </div>
 
@@ -20,7 +25,43 @@
 
 ## 📌 Executive Summary
 
-**Craver Fast Food Co.** is a commercial-grade, multi-page web application engineered for a modern fast-food restaurant brand. Built with a focus on **modular architecture**, **zero framework bloat**, and **sub-second UI responsiveness**, it provides an app-like food discovery and online ordering experience across smartphones, tablets, and desktop workstations.
+**Craver Fast Food Co.** is a commercial-grade, multi-page web application engineered with an enterprise-grade automated delivery pipeline. Built with a focus on **modular architecture**, **zero framework bloat**, and **automated continuous delivery**, it showcases full-stack web engineering backed by modern Cloud & DevOps best practices (Docker containerization, automated security scanning, multi-job artifact management, and zero-downtime deployment strategies).
+
+---
+
+## 🚀 Enterprise CI/CD & Delivery Architecture
+
+The application is deployed and governed by an automated, multi-pipeline GitHub Actions architecture running across ephemeral cloud runners:
+
+```mermaid
+flowchart TD
+    subgraph CI["1. Continuous Integration (pipeline.yml)"]
+        A["Git Push to main"] --> B["Gate 1: Code Integrity & File Linting"]
+        B --> C["Docker Container Build & Layer Cache"]
+        C --> D["Gate 2: Aqua Security Trivy CVE Scan"]
+        D --> E["Gate 3: Live HTTP Integration Smoke Test"]
+        E --> F["Secure Docker Hub Publish (uzairsultan/craver-fastfood)"]
+        F --> G["Cross-VM Artifact Handoff Locker"]
+        G --> H["Clean Staging VM #2 Image Pull & Smoke Test"]
+    end
+
+    subgraph CD["2. Continuous Deployment Workflows (On-Demand)"]
+        I["Rolling Deployment (rolling-deploy.yml)"] --- I1["Incremental in-place replica update with health checks"]
+        J["Blue/Green Deployment (blue-green-deploy.yml)"] --- J1["NGINX Reverse Proxy + Docker Bridge Network + Hot-Reload"]
+    end
+
+    CI --> CD
+```
+
+### 🛡️ The 3 Automated Quality Gates
+1. **Gate 1 (File & Code Integrity):** Automatically verifies core website assets and Docker configurations before any compute resources are allocated.
+2. **Gate 2 (DevSecOps Container Audit):** Integrates **Aqua Security Trivy (`@v0.36.0`)** to scan the built Docker image for known OS-level CVEs and vulnerabilities, automatically failing the build on `CRITICAL` or `HIGH` findings.
+3. **Gate 3 (Integration HTTP Smoke Test):** Spins up a live background container on the cloud runner, waits for port availability with race-condition mitigations, and validates `HTTP/1.1 200 OK` header responses before passing.
+
+### 🔄 Production Deployment Strategies
+* **Docker Registry Delivery:** Automatically authenticates with Docker Hub using scoped Personal Access Tokens (PAT) and GitHub Secrets, pushing immutable container images with zero plaintext credential exposure.
+* **Zero-Downtime Blue/Green Cutover:** Provisions an isolated NGINX reverse proxy on a custom Docker bridge network (`app-network`). Manages live traffic shifts from Blue (Port 8081) to Green (Port 8082) in < 1 second using Unix process signals (`nginx -s reload`) without dropping active connections.
+* **Rolling Update Rollout:** Progressively terminates old container replicas, launches new versions on matching ports, verifies HTTP endpoints with `curl`, and guarantees continuous service availability.
 
 ---
 
@@ -156,8 +197,18 @@ fastfood-restaurant/
 
 ---
 
-## 🛠️ Local Development Setup
+## 🛠️ Local Development & Deployment Setup
 
+### Option A: Launch with Docker (Recommended)
+Pull and run the official production container image directly from Docker Hub:
+```bash
+# Pull and run on port 8080
+docker run -d -p 8080:80 --name craver-app uzairsultan/craver-fastfood:latest
+
+# Open in browser: http://localhost:8080
+```
+
+### Option B: Local Static Server (Python 3)
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Uzair0123/craver-fast-food.git
@@ -165,7 +216,7 @@ git clone https://github.com/Uzair0123/craver-fast-food.git
 # 2. Navigate to the project directory
 cd craver-fast-food
 
-# 3. Launch local server (Python 3)
+# 3. Launch local server
 python3 -m http.server 8080
 ```
 Open **`http://localhost:8080`** in your browser.
